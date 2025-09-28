@@ -16,6 +16,7 @@
 <body>
     <h2 style="text-align:center">Edit User</h2>
     <form action="<c:url value='/admin/user/update'/>" method="post" enctype="multipart/form-data">
+        <!-- giữ id khi update -->
         <input type="hidden" name="userid" value="${user.userId}" />
 
         <label>Username:</label>
@@ -29,14 +30,14 @@
 
         <label>Role:</label>
         <select name="role">
-            <option value="admin" ${user.role == 'admin' ? 'selected' : ''}>Admin</option>
-            <option value="user" ${user.role == 'user' ? 'selected' : ''}>User</option>
+            <option value="admin" <c:if test="${user.role == 'admin'}">selected</c:if>>Admin</option>
+            <option value="user" <c:if test="${user.role == 'user'}">selected</c:if>>User</option>
         </select>
 
         <label>Status:</label>
         <select name="status">
-            <option value="1" ${user.status == 1 ? 'selected' : ''}>Active</option>
-            <option value="0" ${user.status == 0 ? 'selected' : ''}>Locked</option>
+            <option value="1" <c:if test="${user.status == 1}">selected</c:if>>Active</option>
+            <option value="0" <c:if test="${user.status == 0}">selected</c:if>>Locked</option>
         </select>
 
         <label>Avatar:</label>

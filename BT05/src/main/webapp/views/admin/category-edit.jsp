@@ -16,6 +16,7 @@
 <body>
     <h2 style="text-align:center">Edit Category</h2>
     <form action="<c:url value='/admin/category/update'/>" method="post" enctype="multipart/form-data">
+        <!-- giữ id khi update -->
         <input type="hidden" name="categoryid" value="${cate.categoryId}" />
 
         <label>Name:</label>
@@ -23,8 +24,8 @@
 
         <label>Status:</label>
         <select name="status">
-            <option value="1" ${cate.status==1 ? 'selected' : ''}>Active</option>
-            <option value="0" ${cate.status==0 ? 'selected' : ''}>Inactive</option>
+            <option value="1" <c:if test="${cate.status == 1}">selected</c:if>>Active</option>
+            <option value="0" <c:if test="${cate.status == 0}">selected</c:if>>Inactive</option>
         </select>
 
         <label>Image:</label>
